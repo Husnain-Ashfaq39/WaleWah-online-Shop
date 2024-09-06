@@ -1,31 +1,53 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Slider from 'react-slick';
 import CustomHeading from '@/Components/Common/CustomHeading';
 import Avatar from '@/Components/Common/Avatar';
 import { placeHolderImage } from '../../../../Data/CommonPath';
-import CategoryContext from '@/Helper/CategoryContext';
-import { useTranslation } from '@/app/i18n/client';
-import I18NextContext from '@/Helper/I18NextContext';
 import NoDataFound from '@/Components/Common/NoDataFound';
 
-const ProductSection2 = ({ dataAPI, isHeadingVisible = false, classes = {}, svgUrl }) => {
-  const { filterCategory } = useContext(CategoryContext);
-  const { i18Lang } = useContext(I18NextContext);
-  const { t } = useTranslation(i18Lang, 'common');
-  const categoryData = filterCategory('product');
+// Hardcoded static data
+const staticCategoryData = [
+  { id: 1, name: 'Category 1', slug: 'category-1', category_icon: '/path/to/icon1.svg' },
+  { id: 2, name: 'Category 2', slug: 'category-2', category_icon: '/path/to/icon2.svg' },
+  { id: 3, name: 'Category 3', slug: 'category-2', category_icon: '/path/to/icon2.svg' },
+  { id: 4, name: 'Category 4', slug: 'category-3', category_icon: '/path/to/icon3.svg' },
+  { id: 5, name: 'Category 5', slug: 'category-3', category_icon: '/path/to/icon3.svg' },
+  { id: 6, name: 'Category 6', slug: 'category-3', category_icon: '/path/to/icon3.svg' },
+  { id: 7, name: 'Category 7', slug: 'category-3', category_icon: '/path/to/icon3.svg' },
+  { id: 8, name: 'Category 8', slug: 'category-3', category_icon: '/path/to/icon3.svg' },
+  // Add more categories as needed
+];
+
+// Hardcoded slider options
+const sliderOptions = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+};
+
+const ProductSection2 = () => {
   return (
     <>
-      {isHeadingVisible ? <CustomHeading customClass={classes?.noCustomClass ? '' : 'section-t-space title'} title={dataAPI?.title} svgUrl={svgUrl} subTitle={dataAPI?.description} /> : ''}
+      {/* Static Heading */}
+      <CustomHeading
+        customClass="section-t-space title"
+        title="Static Title"
+        svgUrl={<img src='/path/to/static-icon.svg' className='icon-width' alt='Static Icon' />}
+        subTitle="This is a static subtitle for the product section"
+      />
 
-      {categoryData?.length > 0 ? (
+      {/* Static category list */}
+      {staticCategoryData.length > 0 ? (
         <div className='category-slider-2 product-wrapper no-arrow'>
-          <Slider {...classes?.sliderOption}>
-            {categoryData?.map((elem) => (
+          <Slider {...sliderOptions}>
+            {staticCategoryData.map((elem) => (
               <div key={elem.id}>
-                <Link href={`/${i18Lang}/collections?category=${elem?.slug}`} className={`category-box ${classes?.link} category-dark`}>
+                <Link href={`/collections?category=${elem.slug}`} className='category-box category-dark'>
                   <div>
-                    <Avatar data={elem?.category_icon} placeHolder={placeHolderImage} name={elem.name} />
+                    <Avatar data={elem.category_icon} placeHolder={placeHolderImage} name={elem.name} />
                     <h5>{elem.name}</h5>
                   </div>
                 </Link>

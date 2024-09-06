@@ -7,27 +7,21 @@ import ProductBox1Rating from './ProductBox1Rating';
 import Avatar from '../../Avatar';
 import { placeHolderImage } from '../../../../../Data/CommonPath';
 import Btn from '@/Elements/Buttons/Btn';
-import useDelete from '@/Utils/Hooks/useDelete';
-import { WishlistAPI } from '@/Utils/AxiosUtils/API';
 import I18NextContext from '@/Helper/I18NextContext';
 import { useTranslation } from '@/app/i18n/client';
 import ProductBagde from './ProductBagde';
 import SettingContext from '@/Helper/SettingContext';
 import { ModifyString } from '@/Utils/CustomFunctions/ModifyString';
 
-const ProductBox1 = ({ imgUrl, badge, productDetail, isClose, refetch, addAction = true, classObj }) => {
+const ProductBox1 = ({ imgUrl, badge, productDetail, isClose, addAction = true, classObj }) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, 'common');
   const { convertCurrency } = useContext(SettingContext);
-  const { data: wishlistData, mutate, isLoading: wishlistLoader } = useDelete(WishlistAPI, `/${i18Lang}/wishlist`);
+
   const handelDelete = (currObj) => {
-    mutate(currObj?.id);
+    console.log('Deleted item:', currObj);
   };
-  useEffect(() => {
-    if (wishlistData?.status == 200 || wishlistData?.status == 201) {
-      refetch();
-    }
-  }, [wishlistLoader]);
+
   return (
     <div className={`product-box ${classObj?.productBoxClass}`}>
       <ProductBagde productDetail={productDetail} />

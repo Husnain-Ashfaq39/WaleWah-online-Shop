@@ -43,18 +43,15 @@ const OsakaTheme = () => {
     <>
       <HomeBannerOsaka dataAPI={data?.content?.home_banner} />
 
-      {data?.content?.categories_icon_list.status && (
+      
         <WrapperComponent noRowCol={true}>
           <ProductSection2
-            isHeadingVisible={true}
-            dataAPI={data?.content?.categories_icon_list}
-            svgUrl={<LeafSVG className='icon-width' />}
-            classes={{ sliderOption: osakaCategoryOption, noCustomClass: true }}
+           
           />
         </WrapperComponent>
-      )}
+      
 
-      {data?.content?.coupons?.status && <BannerSection dataAPI={data?.content?.coupons} />}
+      {/* {data?.content?.coupons?.status && <BannerSection dataAPI={data?.content?.coupons} />} */}
 
       <MiddleContent dataAPI={data?.content} />
 
@@ -66,7 +63,7 @@ const OsakaTheme = () => {
           {data?.content?.featured_blogs?.blog_ids?.length > 0 ? (
             <Row>
               <Col xs={12}>
-                <FeatureBlog dataAPI={data?.content?.featured_blogs} classes={{ sliderClass: 'slider-5 ratio_87', sliderOption: osakaFeatureBlogOption, height: 238, width: 417 }} />
+                <FeatureBlog classes={{ sliderClass: 'slider-5 ratio_87', sliderOption: osakaFeatureBlogOption, height: 238, width: 417 }} />
               </Col>
             </Row>
           ) : (
@@ -75,8 +72,8 @@ const OsakaTheme = () => {
         </WrapperComponent>
       )}
 
-      {data?.content?.news_letter?.status && <NewsLetter dataAPI={data?.content?.news_letter} />}
-      {themeOption?.general?.sticky_cart_enable && themeOption?.general?.cart_style !== 'cart_sidebar' && <StickyCart />}
+      {/* {data?.content?.news_letter?.status && <NewsLetter dataAPI={data?.content?.news_letter} />}
+      {themeOption?.general?.sticky_cart_enable && themeOption?.general?.cart_style !== 'cart_sidebar' && <StickyCart />} */}
     </>
   );
 };

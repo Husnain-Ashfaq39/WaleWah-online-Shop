@@ -24,7 +24,7 @@ const MiddleContent = ({ dataAPI }) => {
         </WrapperComponent>
       )}
 
-      {dataAPI?.offer_banner?.status && (
+      {/* {dataAPI?.offer_banner?.status && (
         <WrapperComponent colProps={{ xs: 12 }}>
           <OfferBanner classes={{ customHoverClass: 'offer-box hover-effect' }} imgUrl={dataAPI?.offer_banner?.image_url} elem={dataAPI?.offer_banner} />
         </WrapperComponent>
@@ -47,7 +47,7 @@ const MiddleContent = ({ dataAPI }) => {
         <WrapperComponent noRowCol={true}>
           <DetailedBanner dataAPI={dataAPI?.product_bundles?.bundles} />
         </WrapperComponent>
-      )}
+      )} */}
     </>
   );
 };

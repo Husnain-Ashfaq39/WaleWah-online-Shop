@@ -4,10 +4,39 @@ import ProductContent from './ProductContent';
 import WrapperComponent from '../../Common/WrapperComponent';
 import NoDataFound from '@/Components/Common/NoDataFound';
 
-const TopSelling = ({ dataAPI, classes, customRow }) => {
+// Static product data
+const staticProducts = [
+  {
+    title: 'Top Selling',
+    status: true,
+    product_ids: [1, 2, 3, 4],
+    // Add more relevant data for the product if necessary
+  },
+  {
+    title: 'Trending',
+    status: true,
+    product_ids: [1, 2, 3],
+    // Add more relevant data for the product if necessary
+  },
+  {
+    title: 'Latest',
+    status: true,
+    product_ids: [1, 2],
+    // Add more relevant data for the product if necessary
+  },
+  {
+    title: 'Top Rated',
+    status: true,
+    product_ids: [1, 2,3],
+    // Add more relevant data for the product if necessary
+  },
+  // Add more static products here
+];
+
+const TopSelling = ({ classes, customRow }) => {
   const filterTopProducts = useMemo(() => {
-    return Object.values(dataAPI).filter((el) => (el?.title && el.status && el.product_ids.length >= 3 ? true : false));
-  }, [dataAPI]);
+    return staticProducts.filter((el) => (el?.title && el.status && el.product_ids.length >= 3 ? true : false));
+  }, []);
 
   return (
     <>
