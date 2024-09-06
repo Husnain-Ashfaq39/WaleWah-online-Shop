@@ -21,9 +21,9 @@ const StandardHotDeal = () => {
         </div>
         <a className='btn theme-bg-color ms-3 fire-button' onClick={() => setModal(true)}>
           <div className='fire'>
-            <Image src={HotSale} className='img-fluid' alt='fire' height={20} width={20} />
+            <Image src={HotSale} className='img-fluid mb-[-5px]'  alt='fire' height={20} width={20} />
           </div>
-          <span>{t('HotDeals')}</span>
+          <span>{t('Flash Sale')}</span>
         </a>
       </div>
       <HeaderDealModal modal={modal} setModal={setModal} data={themeOption?.header?.today_deals} />

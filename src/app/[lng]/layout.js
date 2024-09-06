@@ -1,6 +1,7 @@
 import I18NextProvider from '@/Helper/I18NextContext/I18NextProvider'
 import '../../../public/assets/scss/app.scss'
 import NoSSR from '@/Utils/NoSSR'
+import './global.css'
 
 export async function generateMetadata() {
     // fetch data

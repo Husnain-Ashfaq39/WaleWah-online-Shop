@@ -5,6 +5,7 @@ import CartContext from '@/Helper/CartContext';
 import ThemeOptionContext from '@/Helper/ThemeOptionsContext';
 import HeaderCartData from './HeaderCartData';
 import I18NextContext from '@/Helper/I18NextContext';
+import HeaderProfile from './HeaderProfile';
 
 const StandardRightSide = () => {
   const { i18Lang } = useContext(I18NextContext);
@@ -33,7 +34,10 @@ const StandardRightSide = () => {
                 {elem.isBadge && <HeaderCartData cartStyle={cartStyle} />}
               </li>
             </Fragment>
+            
           ))}
+          <HeaderProfile />
+          
         </ul>
       </div>
     </div>

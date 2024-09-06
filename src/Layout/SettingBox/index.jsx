@@ -14,19 +14,19 @@ const SettingBox = () => {
   const [openSetting, setOpenSetting] = useState(false);
   const [rtlValue, setRtlValue] = useState(themeOption?.general?.language_direction?themeOption?.general?.language_direction:"ltr");
   const [lightDarkMode, setLightDarkMode] = useState(themeOption?.general?.mode?themeOption?.general?.mode:"light");
-  const [themeColor, setThemeColor] = useState("#0da487");
+  const [themeColor, setThemeColor] = useState("#25901b");
   const pathName = usePathname();
   useEffect(() => {
     const currentThemeColor = getComputedStyle(document.documentElement).getPropertyValue("--theme-color");
     if (currentThemeColor) {      
       setThemeColor(currentThemeColor.trimStart());
     } else {
-      setThemeColor("#0da487");
+      setThemeColor("#25901b");
     }
   }, [pathName]); 
   
    useEffect(() => {
-    setThemeColor(themeOption?.general?.primary_color ?? "#0da487" )
+    setThemeColor(themeOption?.general?.primary_color ?? "#25901b" )
     themeOption?.general?.mode === "dark"? document.documentElement.classList.add("dark") : document.documentElement.classList.remove("dark");
     themeOption?.general?.language_direction == "rtl"? document.body.setAttribute("dir", "rtl"): document.body.setAttribute("dir", "ltr");
   }, [pathName,themeOption?.general?.mode,themeOption?.general?.language_direction]);
@@ -72,15 +72,7 @@ const SettingBox = () => {
                 <Btn className={`btn-2 ${ lightDarkMode == "light" ? "unline" : "outline"}`} onClick={() => handleLightDarkMode("light")} id="lightButton">{t("Light")}</Btn>
               </div>
             </li>
-            <li>
-              <div className="setting-name">
-                <h4>{t("RTL")}</h4>
-              </div>
-              <div className="theme-setting-button rtl">
-                <Btn className={`btn btn-2 ${ rtlValue === "rtl" ? "rtl-unline" : "rtl-outline"}`} onClick={() => handleRtl("rtl")}>{t("RTL")}</Btn>
-                <Btn className={`btn btn-2 ${ rtlValue === "ltr" ? "rtl-unline" : "rtl-outline" }`} onClick={() => handleRtl("ltr")}>{t("LTR")}</Btn>
-              </div>
-            </li>
+            
           </ul>
         </div>
       </div>

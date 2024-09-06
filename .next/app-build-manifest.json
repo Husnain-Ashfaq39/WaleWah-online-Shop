@@ -1,3 +1,30 @@
 {
-  "pages": {}
+  "pages": {
+    "/[lng]/(mainLayout)/theme/osaka/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lng]/(mainLayout)/theme/osaka/page.js"
+    ],
+    "/[lng]/(mainLayout)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lng]/(mainLayout)/layout.js"
+    ],
+    "/[lng]/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[lng]/layout.css",
+      "static/chunks/app/[lng]/layout.js"
+    ],
+    "/[lng]/(mainLayout)/[...not-found]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lng]/(mainLayout)/[...not-found]/page.js"
+    ],
+    "/[lng]/(mainLayout)/collections/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lng]/(mainLayout)/collections/page.js"
+    ]
+  }
 }

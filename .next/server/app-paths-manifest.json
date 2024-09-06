@@ -1,1 +1,5 @@
-{}
+{
+  "/[lng]/(mainLayout)/collections/page": "app/[lng]/(mainLayout)/collections/page.js",
+  "/[lng]/(mainLayout)/[...not-found]/page": "app/[lng]/(mainLayout)/[...not-found]/page.js",
+  "/[lng]/(mainLayout)/theme/osaka/page": "app/[lng]/(mainLayout)/theme/osaka/page.js"
+}

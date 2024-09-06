@@ -29,7 +29,7 @@ const RecentPurchase = () => {
         setTimeout(() => {
           setShow((prev) => !prev);
         }, 5000);
-      }, 20000);
+      }, 0);
     }
 
     return () => {
@@ -50,7 +50,7 @@ const RecentPurchase = () => {
     }
   };
 
-  if (!popupEnable || !product) {
+  if (popupEnable || !product) {
     return null; // Return null when the popup is not enabled or there's no product to display.
   }
   return (

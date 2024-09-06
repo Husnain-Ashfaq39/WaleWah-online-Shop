@@ -16,7 +16,7 @@ const TodaysDeal = () => {
       <div className='header-nav-right'>
         <Btn className='btn deal-button' onClick={() => setModal(true)}>
           <RiFlashlightLine />
-          <span>{t('DealToday')}</span>
+          <span>{t('Flash Sale')}</span>
         </Btn>
       </div>
       <HeaderDealModal modal={modal} setModal={setModal} data={themeOption?.header?.today_deals} />
